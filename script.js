@@ -29,26 +29,40 @@
       }
     });
   });
-  document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("carouselTrack");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const discoverBtn = document.querySelector(".discover-btn");
-  const carouselContainer = document.getElementById("carousel-section");
 
-  // Scroll Left/Right
-  prevBtn?.addEventListener("click", () => {
-    track.scrollBy({ left: -600, behavior: "smooth" });
+document.querySelectorAll('.carousel-card').forEach(card => {
+  const img = card.querySelector('.project-image');
+  const details = card.querySelector('.project-details');
+  const closeBtn = card.querySelector('.close-details-btn');
+
+  img.addEventListener('click', () => {
+    seeMoreBtn.style.display = 'block';
   });
 
-  nextBtn?.addEventListener("click", () => {
-    track.scrollBy({ left: 600, behavior: "smooth" });
+  seeMoreBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    seeMoreBtn.style.display = 'none';
+    details.style.display = 'block';
   });
 
-  // Reveal and scroll to carousel
-  discoverBtn?.addEventListener("click", () => {
-    carouselContainer.scrollIntoView({ behavior: "smooth" });
+  closeBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    details.style.display = 'none';
+    seeMoreBtn.style.display = 'block';
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.see-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.carousel-card');
+      card.classList.toggle('active');
+      button.textContent = card.classList.contains('active') ? 'See Less' : 'See More';
+    });
+  });
+});
+
+
+
+
 
   

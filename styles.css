@@ -138,11 +138,11 @@
   padding-left: 15px;
   margin: 0;
 }
+/* Title styles */
 .orange-small {
   color: orange;
   font-size: 1.5rem;
   font-weight: 600;
-  
 }
 
 .orange-large {
@@ -155,7 +155,6 @@
   font-size: 1.5rem;
   font-weight: 500;
   color: #333;
-  
 }
 
 .creativity-text {
@@ -163,10 +162,75 @@
   font-weight: bold;
   color: #333;
 }
-.info-block p {
-  line-height: 1.8;
-  letter-spacing: 0.3px;
+
+/* Info section */
+.info-section {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.info-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+}
+
+.info-block {
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 3px solid #ccc;
+}
+
+.info-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.info-text {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .orange-small {
+    font-size: 1.2rem;
+  }
+
+  .orange-large {
+    font-size: 2rem;
+  }
+
+  .vision-text {
+    font-size: 1.2rem;
+  }
+
+  .creativity-text {
+    font-size: 2rem;
+  }
+
+  .info-section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .info-title {
+    font-size: 1rem;
+  }
+
+  .info-text {
+    font-size: 0.95rem;
+  }
+
+  .info-block {
+    padding-left: 0.75rem;
+  }
+}
+
+
 
 
 .members-section {
@@ -245,29 +309,7 @@
   color: #ffc107;
 }
 
-.projects-section {
-  /* Removed background color */
-  background-color: #ccc;
-  padding: 60px 20px;
-  min-height: 350px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222; /* Change text color to dark for better contrast if background is light */
-}
-
-.projects-title h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-align: left;
-  color: #222; /* dark text */
-}
-
-.section-description {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 300px;
-  line-height: 1.4;
-}
+/* General styles */
 
 .project-carousel {
   background: #fff;
@@ -276,6 +318,8 @@
   flex-wrap: wrap;
   gap: 40px;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
 }
 
 .left-content {
@@ -305,6 +349,11 @@
   border-radius: 30px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.discover-btn:hover {
+  background-color: #333;
 }
 
 .carousel-container {
@@ -330,6 +379,8 @@
   overflow: hidden;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
 }
 
 .carousel-card:hover {
@@ -340,6 +391,7 @@
   width: 100%;
   height: 300px;
   object-fit: cover;
+  display: block;
 }
 
 .card-info {
@@ -356,27 +408,96 @@
   font-size: 1.4rem;
   color: #222;
 }
-
-.carousel-btn {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 2rem;
-  padding: 10px 16px;
-  border-radius: 50%;
-  border: none;
+.carousel-card {
+  min-width: 320px;
+  max-width: 400px;
+  flex: 0 0 auto;
+  background: #fafafa;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
   cursor: pointer;
-  z-index: 5;
+  margin: 0 10px;
+  overflow: hidden;
 }
 
-#prevBtn {
-  left: 10px;
+
+/* Container image + overlay */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
-#nextBtn {
-  right: 10px;
+
+/* Image settings */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
+/* Overlay title visible always */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  padding: 15px 20px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.image-overlay span {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.image-overlay h4 {
+  font-size: 1.3rem;
+  margin: 5px 0 0;
+  font-weight: 600;
+}
+
+/* See More button */
+.see-more-btn {
+  margin: 10px 0px;
+  padding: 10px 20px;
+  background-color: #0f2027;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Project details hidden by default */
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background: #f4f7f9;
+  border-radius: 0 0 16px 16px;
+  padding: 0 20px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Show when card has active class */
+.carousel-card.active .project-details {
+  max-height: 500px;
+  padding: 20px;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -387,11 +508,8 @@
   .carousel-card {
     min-width: 90%;
   }
-
-  .carousel-btn {
-    display: none;
-  }
 }
+
 
 .footer-section {
   background-color: #1c1c1c;
