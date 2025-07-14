@@ -1,4 +1,5 @@
 
+
   const navbar = document.querySelector('.navbar');
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   const sections = Array.from(navLinks).map(link => {
